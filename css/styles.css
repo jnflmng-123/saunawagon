@@ -294,3 +294,16 @@ textarea { min-height: 120px; resize: vertical; }
   .hero-split .hero-inner { grid-template-columns: 1fr; }
   .hero-split .stats { grid-column: auto; }
 }
+
+/* Photo cards, banners, photo wall */
+.card-photo { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.card-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 2px solid var(--brown-3); }
+.card-photo .card-body { padding: 1.2rem 1.3rem 1.4rem; }
+.banner { position: relative; isolation: isolate; background-position: center; background-size: cover; min-height: 340px; display: grid; align-items: center; color: var(--cream); }
+.banner-tint { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(46, 32, 22, .35), rgba(46, 32, 22, .7)); }
+.banner-inner { text-align: center; padding-top: 3rem; padding-bottom: 3rem; }
+.banner .script { color: var(--cream); font-size: clamp(1.8rem, 4vw, 3rem); text-shadow: 2px 2px 0 var(--brown); margin-bottom: 1.4rem; }
+.photo-wall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.photo-wall .photo img { aspect-ratio: 4 / 3; }
+@media (max-width: 960px) { .photo-wall { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 680px) { .photo-wall { grid-template-columns: 1fr; } .banner { min-height: 260px; } }
