@@ -15,39 +15,41 @@ document.addEventListener('DOMContentLoaded', function () {
     el.textContent = new Date().getFullYear();
   });
 
-  // Forms.
-  // Set the form's action to your Formspree endpoint (https://formspree.io/f/XXXXXXXX)
-  // and submissions land in your inbox. Until then, the form opens the visitor's
-  // email app with everything filled in, addressed to hello@saunawagon.ca.
+  // Forms deliver through Web3Forms, so no email address appears on the site.
+  // The access_key hidden field identifies the form; the destination address lives
+  // only in the Web3Forms account. Until the key is set, the form asks visitors to
+  // call or text instead.
+  var PHONE = '(403) 809-1572';
   document.querySelectorAll('form[data-form]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var endpoint = form.getAttribute('action') || '';
       var status = form.querySelector('.form-status');
-      var data = new FormData(form);
-      var phoneNote = ' If nothing happens, call or text (403) 809-1572.';
+      var keyField = form.querySelector('input[name="access_key"]');
+      var key = keyField ? keyField.value : '';
+      var button = form.querySelector('button[type="submit"]');
 
-      if (!endpoint || endpoint.indexOf('YOUR_FORM_ID') !== -1) {
-        var lines = [];
-        data.forEach(function (value, key) {
-          if (key.charAt(0) !== '_' && String(value).trim() !== '') {
-            lines.push(key.replace(/_/g, ' ') + ': ' + value);
-          }
-        });
-        var subject = encodeURIComponent(form.getAttribute('data-subject') || 'Website request');
-        var body = encodeURIComponent(lines.join('\n'));
-        window.location.href = 'mailto:hello@saunawagon.ca?subject=' + subject + '&body=' + body;
-        if (status) status.textContent = 'Opening your email app with the details filled in.' + phoneNote;
+      if (!key || key === 'YOUR_ACCESS_KEY') {
+        if (status) status.textContent = 'Online booking is being switched on. For now, call or text ' + PHONE + ' and we\'ll get you sorted.';
         return;
       }
 
-      fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
-        .then(function (r) {
-          if (!r.ok) throw new Error('send failed');
-          window.location.href = form.getAttribute('data-success') || 'booking-success.html';
+      var data = new FormData(form);
+      data.append('subject', form.getAttribute('data-subject') || 'Website request');
+      if (button) button.disabled = true;
+      if (status) status.textContent = 'Sending…';
+
+      fetch(form.getAttribute('action'), { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json(); })
+        .then(function (json) {
+          if (json && json.success) {
+            window.location.href = form.getAttribute('data-success') || 'booking-success.html';
+          } else {
+            throw new Error('send failed');
+          }
         })
         .catch(function () {
-          if (status) status.textContent = 'Something went wrong sending the form.' + phoneNote;
+          if (button) button.disabled = false;
+          if (status) status.textContent = 'Something went wrong sending the form. Call or text ' + PHONE + ' and we\'ll sort you out.';
         });
     });
   });

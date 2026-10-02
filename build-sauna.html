@@ -8,17 +8,17 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%234E3222'/%3E%3Ctext x='32' y='43' font-family='Georgia' font-size='26' font-weight='bold' text-anchor='middle' fill='%23F2E8CE'%3ESW%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Kaushan+Script&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="logo" href="index.html" aria-label="Sauna Wagon home">
-      <svg class="logo-cloud" viewBox="0 0 64 20" aria-hidden="true"><path d="M8 19h48a5.5 5.5 0 0 0-2-10.6A9 9 0 0 0 37 4a8 8 0 0 0-14 2 6 6 0 0 0-8 4.5A5 5 0 0 0 8 19z" fill="#AEC3C5"/></svg>
+    <a class="logo" href="index.html" aria-label="Sauna Wagon home"><svg class="logo-badge" viewBox="-70 -58 140 116" aria-hidden="true"><ellipse cx="0" cy="0" rx="60" ry="48" fill="none" stroke="currentColor" stroke-width="4"/><path d="M -16 -6 C -24 -14 -8 -19 -16 -28" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M 0 -9 C -8 -19 8 -25 0 -34" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M 16 -6 C 8 -14 24 -19 16 -28" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><circle cx="-13" cy="9" r="7.5" fill="currentColor"/><circle cx="1" cy="12" r="9" fill="currentColor"/><circle cx="16" cy="8" r="7" fill="currentColor"/><path d="M -29 25 L 29 25" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg><span class="logo-text">
+      
       <span class="logo-name">SAUNA WAGON</span>
-      <span class="logo-sub">Mobile Sauna · Sorrento, BC</span>
+      <span class="logo-sub">Mobile Sauna · Sorrento, BC</span></span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav">
@@ -115,7 +115,10 @@
         <h2>Tell us what you're building.</h2>
         <p class="lead">We'll get back to you within 24 hours with a detailed quote.</p>
       </div>
-      <form class="card" style="margin-top:2rem" data-form data-subject="Home sauna quote request" data-success="booking-success.html" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="card" style="margin-top:2rem" data-form data-subject="Home sauna quote request" data-success="booking-success.html" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+        <input type="hidden" name="from_name" value="Sauna Wagon website">
+        <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off">
         <div class="form-grid">
           <div><label for="q-name">Your name *</label><input id="q-name" name="name" required></div>
           <div><label for="q-email">Email *</label><input id="q-email" name="email" type="email" required></div>
@@ -158,9 +161,9 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <div class="logo logo-footer">
+      <div class="logo logo-footer"><svg class="logo-badge" viewBox="-70 -58 140 116" aria-hidden="true"><ellipse cx="0" cy="0" rx="60" ry="48" fill="none" stroke="currentColor" stroke-width="4"/><path d="M -16 -6 C -24 -14 -8 -19 -16 -28" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M 0 -9 C -8 -19 8 -25 0 -34" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M 16 -6 C 8 -14 24 -19 16 -28" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><circle cx="-13" cy="9" r="7.5" fill="currentColor"/><circle cx="1" cy="12" r="9" fill="currentColor"/><circle cx="16" cy="8" r="7" fill="currentColor"/><path d="M -29 25 L 29 25" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg><span class="logo-text">
         <span class="logo-name">SAUNA WAGON</span>
-        <span class="logo-sub">Mobile Sauna · Sorrento, BC</span>
+        <span class="logo-sub">Mobile Sauna · Sorrento, BC</span></span>
       </div>
       <p>The Shuswap's own mobile sauna rental. We deliver a fully heated cedar sauna trailer to your property on Shuswap Lake and surrounding areas. No setup required.</p>
     </div>
@@ -180,7 +183,6 @@
         <li>Sorrento, BC</li>
         <li>Serving Shuswap Lake &amp; area</li>
         <li><a href="tel:+14038091572">(403) 809-1572</a></li>
-        <li><a href="mailto:hello@saunawagon.ca">hello@saunawagon.ca</a></li>
       </ul>
     </div>
   </div>
