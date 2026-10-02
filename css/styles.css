@@ -307,3 +307,5 @@ textarea { min-height: 120px; resize: vertical; }
 .photo-wall .photo img { aspect-ratio: 4 / 3; }
 @media (max-width: 960px) { .photo-wall { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 680px) { .photo-wall { grid-template-columns: 1fr; } .banner { min-height: 260px; } }
+
+.hero-note-light { color: var(--gold-2); }
