@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Now — Sauna Wagon, Shuswap Lake BC</title>
+  <meta name="description" content="Book the Sauna Wagon for your Shuswap property or event. Opening special $199 per day or $299 per weekend, plus $49 delivery and pickup. We confirm within 2 hours.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%234E3222'/%3E%3Ctext x='32' y='43' font-family='Georgia' font-size='26' font-weight='bold' text-anchor='middle' fill='%23F2E8CE'%3ESW%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html" aria-label="Sauna Wagon home">
+      <svg class="logo-cloud" viewBox="0 0 64 20" aria-hidden="true"><path d="M8 19h48a5.5 5.5 0 0 0-2-10.6A9 9 0 0 0 37 4a8 8 0 0 0-14 2 6 6 0 0 0-8 4.5A5 5 0 0 0 8 19z" fill="#AEC3C5"/></svg>
+      <span class="logo-name">SAUNA WAGON</span>
+      <span class="logo-sub">Mobile Sauna · Sorrento, BC</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="rent.html">Rent the Trailer</a>
+      <a href="build-sauna.html">Build a Home Sauna</a>
+      <a href="buy-trailer.html">Buy a Trailer</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-gold btn-sm" href="contact.html">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Book Your Rental</p>
+      <h1>Let's get you<br>in the heat.</h1>
+      <p class="lead">Fill in the details below, or just text us. We'll confirm your date within 2 hours.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split split-booking">
+      <form class="card" data-form data-subject="Sauna Wagon booking request" data-success="booking-success.html" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <h2 style="font-size:1.6rem;margin-top:0">Booking Details</h2>
+        <div class="form-grid">
+          <div class="full">
+            <label>What are you interested in?</label>
+            <div class="radio-row">
+              <label><input type="radio" name="interest" value="Rent the Trailer" checked> Rent the Trailer</label>
+              <label><input type="radio" name="interest" value="Build a Home Sauna"> Build a Home Sauna</label>
+            </div>
+          </div>
+          <div><label for="b-name">Your name *</label><input id="b-name" name="name" required></div>
+          <div><label for="b-email">Email address *</label><input id="b-email" name="email" type="email" required></div>
+          <div><label for="b-phone">Phone number</label><input id="b-phone" name="phone" type="tel"></div>
+          <div><label for="b-date">Preferred date *</label><input id="b-date" name="preferred_date" type="date" required></div>
+          <div class="full">
+            <label for="b-duration">Duration *</label>
+            <select id="b-duration" name="duration" required>
+              <option value="">Select</option>
+              <option>Full Day (24 hrs) — $199 opening special</option>
+              <option>Weekend (Fri–Sun) — $299 opening special</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="b-location">Delivery location</label>
+            <input id="b-location" name="delivery_location">
+            <p class="hint">Include the full address. Tight driveway? Send us a photo when we confirm.</p>
+          </div>
+          <div>
+            <label for="b-guests">Number of guests</label>
+            <select id="b-guests" name="guests">
+              <option>1–2</option>
+              <option>3–4</option>
+              <option>5–6</option>
+              <option>7+</option>
+            </select>
+          </div>
+          <div>
+            <label for="b-plunge">Cold plunge add-on?</label>
+            <select id="b-plunge" name="cold_plunge">
+              <option>Yes, bring a trough</option>
+              <option>No thanks</option>
+              <option>Tell me more</option>
+            </select>
+          </div>
+          <div class="full"><label for="b-notes">Anything else?</label><textarea id="b-notes" name="notes"></textarea></div>
+          <div class="full">
+            <button class="btn btn-gold btn-block" type="submit">Submit Booking Request</button>
+            <p class="form-status" role="status"></p>
+            <p class="fine-print center" style="margin:.6rem 0 0">No payment required to submit a request. We'll confirm within 2 hours.</p>
+          </div>
+        </div>
+      </form>
+
+      <aside>
+        <div class="card">
+          <p class="eyebrow" style="margin-bottom:1.2rem">Contact Us Directly</p>
+          <div class="contact-block"><h4>Call or text</h4><p><a href="tel:+14038091572">(403) 809-1572</a></p></div>
+          <div class="contact-block"><h4>Email</h4><p><a href="mailto:hello@saunawagon.ca">hello@saunawagon.ca</a></p></div>
+          <div class="contact-block"><h4>Based in</h4><p>Sorrento, BC</p></div>
+          <div class="contact-block"><h4>Response time</h4><p>Within 2 hours</p></div>
+          <a class="btn btn-block" href="sms:+14038091572">Text Us Now</a>
+        </div>
+
+        <div class="card" style="margin-top:1.4rem">
+          <p class="eyebrow" style="margin-bottom:1rem">Pricing</p>
+          <span class="script" style="font-size:1.3rem">Opening Special</span>
+          <ul class="price-summary">
+            <li><span>Full Day (24 hrs)</span><strong>$199</strong></li>
+            <li><span>Weekend (Fri–Sun)</span><strong>$299</strong></li>
+            <li><span>Delivery &amp; pickup</span><strong>$49</strong></li>
+            <li><span>Cold plunge add-on</span><strong>$75</strong></li>
+          </ul>
+          <p class="fine-print" style="margin:.8rem 0 0">Prices in CAD. Delivery anywhere in our Shuswap service area.</p>
+        </div>
+
+        <div class="card" style="margin-top:1.4rem">
+          <p class="eyebrow" style="margin-bottom:1rem">Service Area</p>
+          <ul class="checklist" style="grid-template-columns:1fr">
+            <li>Sorrento &amp; Blind Bay</li>
+            <li>Salmon Arm</li>
+            <li>Chase</li>
+            <li>Scotch Creek &amp; Celista</li>
+            <li>Tappen &amp; Canoe</li>
+            <li>Anglemont &amp; Lee Creek</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo logo-footer">
+        <span class="logo-name">SAUNA WAGON</span>
+        <span class="logo-sub">Mobile Sauna · Sorrento, BC</span>
+      </div>
+      <p>The Shuswap's own mobile sauna rental. We deliver a fully heated cedar sauna trailer to your property on Shuswap Lake and surrounding areas. No setup required.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="rent.html">Rent the Trailer</a></li>
+        <li><a href="build-sauna.html">Build a Home Sauna</a></li>
+        <li><a href="buy-trailer.html">Buy a Trailer</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>Sorrento, BC</li>
+        <li>Serving Shuswap Lake &amp; area</li>
+        <li><a href="tel:+14038091572">(403) 809-1572</a></li>
+        <li><a href="mailto:hello@saunawagon.ca">hello@saunawagon.ca</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span data-year>2026</span> Sauna Wagon. All rights reserved. Sorrento, BC.</span>
+    <span>Serving Sorrento · Blind Bay · Salmon Arm · Chase · Scotch Creek</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
