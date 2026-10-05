@@ -309,3 +309,7 @@ textarea { min-height: 120px; resize: vertical; }
 @media (max-width: 680px) { .photo-wall { grid-template-columns: 1fr; } .banner { min-height: 260px; } }
 
 .hero-note-light { color: var(--gold-2); }
+
+.card-accent { background: var(--brown); color: var(--cream); border-color: var(--gold); box-shadow: 5px 5px 0 var(--gold); display: flex; flex-direction: column; justify-content: center; }
+.card-accent h3 { color: var(--gold-2); }
+.card-accent p { color: var(--cream); }
