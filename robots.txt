@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /booking-success.html
+Disallow: /design/
+
+Sitemap: https://saunawagon.ca/sitemap.xml
