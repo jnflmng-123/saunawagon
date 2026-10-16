@@ -313,3 +313,21 @@ textarea { min-height: 120px; resize: vertical; }
 .card-accent { background: var(--brown); color: var(--cream); border-color: var(--gold); box-shadow: 5px 5px 0 var(--gold); display: flex; flex-direction: column; justify-content: center; }
 .card-accent h3 { color: var(--gold-2); }
 .card-accent p { color: var(--cream); }
+
+/* Availability calendar */
+.cal-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.cal { background: var(--paper); border: 2px solid var(--brown-3); border-radius: 8px; padding: 1rem; box-shadow: 4px 4px 0 var(--brown-3); }
+.cal-title { font-family: var(--font-display); color: var(--brown); text-align: center; margin-bottom: .6rem; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal-dow { font-size: .68rem; letter-spacing: .08em; text-align: center; color: var(--muted); font-weight: 700; padding-bottom: .2rem; }
+.cal-day { aspect-ratio: 1; border: 1px solid var(--cream-2); border-radius: 6px; background: #fff; font-family: var(--font-body); font-size: .9rem; color: var(--ink); cursor: pointer; padding: 0; }
+.cal-day.is-open:hover, .cal-day.is-selected { background: var(--pine); color: var(--cream); border-color: var(--pine-2); }
+.cal-day.is-unavailable { background: repeating-linear-gradient(45deg, var(--brown-3), var(--brown-3) 3px, var(--brown-2) 3px, var(--brown-2) 6px); color: var(--cream); cursor: not-allowed; text-decoration: line-through; border-color: var(--brown-2); }
+.cal-day.is-closed { background: transparent; color: var(--steam); cursor: default; border-color: transparent; }
+.cal-legend { grid-column: 1 / -1; display: flex; gap: 1.4rem; flex-wrap: wrap; font-size: .85rem; color: var(--muted); }
+.cal-legend span::before { content: ""; display: inline-block; width: 14px; height: 14px; border-radius: 3px; margin-right: .4rem; vertical-align: -2px; border: 1px solid var(--brown-3); }
+.leg-open::before { background: #fff; }
+.leg-unavail::before { background: var(--brown-2); }
+.leg-closed::before { background: var(--cream-2); border-color: var(--cream-2); }
+@media (max-width: 960px) { .cal-wrap { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 680px) { .cal-wrap { grid-template-columns: 1fr; } }

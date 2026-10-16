@@ -54,3 +54,48 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Availability calendar (data in js/availability.js)
+(function () {
+  var cfg = window.SAUNA_AVAILABILITY, el = document.getElementById('availability');
+  if (!cfg || !el) return;
+  var unavailable = {}; (cfg.unavailable || []).forEach(function (d) { unavailable[d] = true; });
+  var opens = new Date(cfg.opens + 'T00:00:00');
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var first = opens > today ? opens : today;
+  var start = new Date(first.getFullYear(), first.getMonth(), 1);
+  var names = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var dows = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+  function iso(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  var html = '';
+  for (var m = 0; m < (cfg.months || 3); m++) {
+    var d = new Date(start.getFullYear(), start.getMonth() + m, 1);
+    html += '<div class="cal"><div class="cal-title">' + names[d.getMonth()] + ' ' + d.getFullYear() + '</div><div class="cal-grid">';
+    dows.forEach(function (x) { html += '<span class="cal-dow">' + x + '</span>'; });
+    for (var i = 0; i < d.getDay(); i++) html += '<span class="cal-pad"></span>';
+    var days = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+    for (var day = 1; day <= days; day++) {
+      var dt = new Date(d.getFullYear(), d.getMonth(), day), key = iso(dt), cls = 'cal-day', dis = '';
+      if (dt < opens || dt < today) { cls += ' is-closed'; dis = ' disabled'; }
+      else if (unavailable[key]) { cls += ' is-unavailable'; dis = ' disabled'; }
+      else cls += ' is-open';
+      var label = cls.indexOf('is-unavailable') > -1 ? ' aria-label="' + key + ' unavailable"' : '';
+      html += '<button type="button" class="' + cls + '" data-date="' + key + '"' + dis + label + '>' + day + '</button>';
+    }
+    html += '</div></div>';
+  }
+  html += '<div class="cal-legend"><span class="leg-open">Open</span><span class="leg-unavail">Unavailable</span><span class="leg-closed">Not bookable</span></div>';
+  el.innerHTML = html;
+  var inp = document.getElementById('b-date');
+  el.addEventListener('click', function (e) {
+    var b = e.target.closest('.is-open'); if (!b || !inp) return;
+    inp.value = b.getAttribute('data-date'); inp.setCustomValidity('');
+    var sel = el.querySelectorAll('.is-selected'); for (var i = 0; i < sel.length; i++) sel[i].classList.remove('is-selected');
+    b.classList.add('is-selected');
+    inp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  if (inp) inp.addEventListener('change', function () {
+    if (unavailable[inp.value]) { inp.setCustomValidity('That date is unavailable. Please pick another.'); inp.reportValidity(); }
+    else inp.setCustomValidity('');
+  });
+})();

@@ -54,6 +54,17 @@
     </div>
   </section>
 
+  <section class="section" style="padding-bottom:0">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">Availability</p>
+        <h2>Pick an open date.</h2>
+        <p class="lead">Tap a date and it drops into the form below. Weekends go first.</p>
+      </div>
+      <div id="availability" class="cal-wrap" style="margin-top:2rem"></div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container split split-booking">
       <form class="card" data-form data-subject="Sauna Wagon booking request" data-success="booking-success.html" action="https://api.web3forms.com/submit" method="POST">
@@ -72,7 +83,7 @@
           <div><label for="b-name">Your name *</label><input id="b-name" name="name" required></div>
           <div><label for="b-email">Email address *</label><input id="b-email" name="email" type="email" required></div>
           <div><label for="b-phone">Phone number</label><input id="b-phone" name="phone" type="tel"></div>
-          <div><label for="b-date">Preferred date *</label><input id="b-date" name="preferred_date" type="date" required min="2026-11-01"></div>
+          <div><label for="b-date">Preferred date *</label><input id="b-date" name="preferred_date" type="date" required min="2026-11-14"></div>
           <div class="full">
             <label for="b-duration">Duration *</label>
             <select id="b-duration" name="duration" required>
@@ -185,6 +196,7 @@
   </div>
 </footer>
 
+<script src="js/availability.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
