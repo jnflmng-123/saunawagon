@@ -261,7 +261,7 @@ textarea { min-height: 120px; resize: vertical; }
   .area-list { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 860px) {
+@media (max-width: 1040px) {
   .nav-toggle { display: inline-flex; }
   .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--brown); flex-direction: column; align-items: stretch; padding: 1rem 16px 1.4rem; border-bottom: 4px solid var(--gold); gap: 1rem; }
   .nav.open { display: flex; }
@@ -331,3 +331,43 @@ textarea { min-height: 120px; resize: vertical; }
 .leg-closed::before { background: var(--cream-2); border-color: var(--cream-2); }
 @media (max-width: 960px) { .cal-wrap { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 680px) { .cal-wrap { grid-template-columns: 1fr; } }
+
+/* Touch and small-screen fixes */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+.logo { min-height: 44px; }
+.nav-toggle { min-height: 44px; }
+/* header links: comfortable hit area without changing header height */
+.nav a:not(.btn) { display: inline-block; padding: .6rem .1rem; }
+/* footer lists: whole row is the link; rows grow on touch / narrow screens */
+.footer-grid li { margin-bottom: 0; padding: .35rem 0; }
+.footer-grid li > a { display: block; margin: -.35rem 0; padding: .35rem 0; }
+/* radio options: bigger dot, whole row is tappable */
+.radio-row label { min-height: 44px; }
+.radio-row input { width: 1.25rem; height: 1.25rem; }
+/* date field: iOS gives it odd intrinsic sizing */
+input[type="date"] { min-width: 0; max-width: 100%; min-height: 3rem; }
+@media (max-width: 940px), (pointer: coarse) {
+  .footer-grid li { padding: .65rem 0; }
+  .footer-grid li > a { margin: -.65rem 0; padding: .65rem 0; }
+  /* calendar days: fixed fingertip height (not min-height, which fights aspect-ratio and widens the grid) */
+  .cal-day { aspect-ratio: auto; height: 44px; }
+}
+@media (max-width: 1040px) {
+  .nav { gap: .2rem; }
+  .nav a:not(.btn) { display: block; padding: .65rem .25rem; }
+  .nav a.btn { margin-top: .5rem; }
+}
+@media (max-width: 680px) {
+  .cal { padding: .8rem; }
+  .cal-grid { gap: 3px; }
+}
+@media (max-width: 400px) {
+  .header-inner { padding-left: 12px; padding-right: 12px; gap: .5rem; }
+  .logo { min-width: 0; gap: .45rem; }
+  .logo-badge { width: 36px; height: 30px; }
+  .logo-text { min-width: 0; }
+  .logo-name { font-size: 1.08rem; letter-spacing: .03em; }
+  .logo-sub { font-size: .5rem; letter-spacing: .14em; }
+  .nav-toggle { padding: .45rem .65rem; font-size: .8rem; }
+  .nav { padding-left: 12px; padding-right: 12px; }
+}
